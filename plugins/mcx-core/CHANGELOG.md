@@ -5,3 +5,5 @@
 - First public release: the `terminology`, `architecture-overview` and
   `docs-map` skills, and the `param-explore` and `param-write` skills with
   their bundled controller MCP server.
+- Saved connection settings are kept in the plugin's data folder, so they
+  survive plugin updates.

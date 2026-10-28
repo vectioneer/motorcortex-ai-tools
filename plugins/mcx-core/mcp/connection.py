@@ -8,7 +8,18 @@ from pathlib import Path
 import motorcortex
 from motorcortex import McxConnectionError, McxLoginError
 
-_config_file = Path(__file__).parent / "motorcortex_config.json"
+def _state_dir() -> Path:
+    """Where saved settings live.
+
+    Claude Code's per-plugin data folder when it runs the server: it survives
+    plugin updates, which replace the install folder this script sits in.
+    Next to this script otherwise (tests, a server started by hand).
+    """
+    data = os.environ.get("CLAUDE_PLUGIN_DATA")
+    return Path(data) if data else Path(__file__).parent
+
+
+_config_file = _state_dir() / "motorcortex_config.json"
 _default_cert = str(Path(__file__).parent / "mcx.cert.crt")
 
 _req: "motorcortex.Request | None" = None
@@ -29,7 +40,11 @@ def _get_config() -> tuple[str, str, str, str]:
             url = saved.get("MCX_URL", url)
             login = saved.get("MCX_LOGIN", login)
             password = saved.get("MCX_PASSWORD", password)
-            cert = saved.get("MCX_CERT", cert)
+            # A saved path into an earlier install folder is gone after an
+            # update; the bundled certificate stands in for it.
+            saved_cert = saved.get("MCX_CERT")
+            if saved_cert and Path(saved_cert).is_file():
+                cert = saved_cert
         except Exception:
             pass
 
@@ -40,6 +55,22 @@ def _get_config() -> tuple[str, str, str, str]:
 
     return url, login, password, cert
 
+
+
+def save_config(config: dict) -> Path:
+    """Write the connection settings to the saved-settings file.
+
+    The bundled certificate is not stored by path: its path changes with every
+    plugin update, and it is the default anyway. The file holds a password, so
+    only the user can read it.
+    """
+    config = dict(config)
+    if config.get("MCX_CERT") == _default_cert:
+        config.pop("MCX_CERT")
+    _config_file.parent.mkdir(parents=True, exist_ok=True)
+    _config_file.write_text(json.dumps(config, indent=2))
+    _config_file.chmod(0o600)
+    return _config_file
 
 def _is_default_config() -> bool:
     url, _, _, _ = _get_config()

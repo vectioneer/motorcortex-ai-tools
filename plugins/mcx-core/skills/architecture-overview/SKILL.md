@@ -5,7 +5,6 @@ description: >
   together — runtime, parameter tree, communication layer, client APIs,
   tools, test environments, or the security model. For API-level detail,
   consult docs.motorcortex.io.
-owner: coen
 review-by: 2027-01-28
 ---
 

@@ -7,7 +7,8 @@ the tool surface behind the mcx-core param-explore and param-write skills.
 
 Connection settings are loaded in priority order:
   1. Environment variables (MCX_URL, MCX_LOGIN, MCX_PASSWORD, MCX_CERT)
-  2. Local config file (motorcortex_config.json next to this script)
+  2. Saved settings (motorcortex_config.json in the plugin's data folder,
+     $CLAUDE_PLUGIN_DATA; next to this script when that is not set)
   3. Defaults (wss://localhost / admin / vectioneer)
 
 Use the configure_connection tool to save settings in chat — no file editing needed.

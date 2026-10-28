@@ -206,9 +206,47 @@ def list_parameters(prefix: str = "root", depth: int = _pt.DEFAULT_DEPTH,
                          contains=contains, include_private=include_private)
 
 
+def _enum_name(enum, value: int) -> str:
+    """A protobuf enum value by name, or its number when this client does not know it."""
+    try:
+        return enum.Name(value)
+    except ValueError:
+        return str(value)
+
+
+def _describe(p) -> dict:
+    """The metadata of one ParameterInfo message, as get_parameter_info reports it."""
+    info: dict = {
+        "path": p.path,
+        "param_type": _enum_name(_pb.ParameterType, p.param_type),
+        "data_type": _enum_name(_pb.DataType, p.data_type),
+        "elements": p.number_of_elements,
+        "permissions": format(p.permissions, "o"),
+    }
+    if p.unit:
+        info["unit"] = _enum_name(_pb.Unit, p.unit)
+    flags = [name for name, bit in _pb.ParameterFlag.items() if p.flags & bit]
+    if flags:
+        info["flags"] = flags
+    return info
+
+
 @mcp.tool()
 def get_parameter_info(path: str, ctx: Context | None = None) -> dict:
-    """Get metadata about a parameter: array size, type, and full path.
+    """Get metadata about a parameter, to check it before reading or writing.
+
+    Returns:
+        path:        full parameter path
+        param_type:  INPUT, OUTPUT, PARAMETER, PARAMETER_VOLATILE or
+                     PARAMETER_PERSISTENT — outputs are computed by the
+                     controller and cannot be written
+        data_type:   element type (DOUBLE, INT32, BOOL, …)
+        elements:    array size; 1 for a scalar
+        permissions: access bits in octal, user/group/others, as for files
+        unit:        physical unit, when the parameter declares one
+        flags:       LINK_IS_ACTIVE (a link drives the value, so a written
+                     value is overwritten) and OVERWRITE_IS_ACTIVE (the
+                     value is being overridden), when set
 
     Args:
         path: Full parameter path
@@ -217,15 +255,9 @@ def get_parameter_info(path: str, ctx: Context | None = None) -> dict:
         ctx.debug(f"Getting info for {path}")
     try:
         _, tree = _conn._get_connection()
-        params = tree.getParameterTree()
-        for p in params:
+        for p in tree.getParameterTree():
             if p.path == path:
-                info: dict = {"path": p.path}
-                if hasattr(p, "number_of_elements"):
-                    info["elements"] = p.number_of_elements
-                if hasattr(p, "type"):
-                    info["type"] = str(p.type)
-                return info
+                return _describe(p)
         return {"error": f"Parameter not found: {path}"}
     except Exception as e:
         _conn._reset_connection()

@@ -1,7 +1,6 @@
 ---
 name: desk-plot
 description: Plot live Motorcortex controller signals in a running Motorcortex Desk tab — search parameters, add traces with unit-aware axis placement, set the update rate, frame the view. Also covers custom signals (expressions like actual-minus-reference) for quantities the controller does not publish. Use when the user says "plot X", "show me the velocity live", "compare actual vs reference", "plot the tracking error". Requires an open Motorcortex Desk browser tab; for reading values without plotting, use param-explore; for a frequency plot or a statistic over what is already plotted, use desk-analyze.
-owner: coen
 review-by: 2027-03-04
 ---
 

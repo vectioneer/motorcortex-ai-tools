@@ -1,7 +1,6 @@
 ---
 name: desk-capture
 description: Capture or export what a Motorcortex Desk tab is showing — zoom to the region of interest, screenshot the plot as PNG, export buffered trace data as CSV, save or load the trace setup as a JSON file. Use when the user says "screenshot the plot", "export the data", "save this trace setup". For adding signals first, use desk-plot.
-owner: coen
 review-by: 2027-01-28
 ---
 

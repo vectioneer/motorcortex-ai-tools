@@ -1,7 +1,6 @@
 ---
 name: param-explore
 description: Explore the live Motorcortex parameter tree on the connected controller — list paths under a prefix, read values, fetch type/array metadata, or batch-read many paths. Use to inspect runtime state, find paths by name, or verify a path exists before referencing it.
-owner: coen
 review-by: 2027-01-28
 ---
 
@@ -52,7 +51,7 @@ Report the value. For arrays show length + first ~10 elements, then `...` if tru
 ```
 get_parameter_info(path="root/...")
 ```
-Report `Type`, array size, full path, and any flags (input/output/parameter/parameter_volatile).
+Report `param_type` (`INPUT`, `OUTPUT`, `PARAMETER`, …), `data_type`, `elements` (array size), `unit` when present, and any `flags` — `LINK_IS_ACTIVE` means a link drives the value.
 
 ### `batch` — read many paths in one round-trip
 ```
@@ -73,8 +72,8 @@ subtree into the session to throw most of it away. If the result is
 
 For reads, present in compact form:
 ```
-root/Foo/bar             = 3.14    (double, scalar)
-root/Foo/positions       = [0.0, 1.5, ...] (double[6])
+root/Foo/bar             = 3.14    (DOUBLE, scalar, m)
+root/Foo/positions       = [0.0, 1.5, ...] (DOUBLE[6])
 ```
 
 If a path is missing, `list_parameters` on it already returns `suggestions`

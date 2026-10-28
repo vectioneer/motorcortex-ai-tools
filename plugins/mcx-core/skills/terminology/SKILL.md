@@ -5,7 +5,6 @@ description: >
   the Robot App, the Motion Controller, or the Visualization Computer — to get
   platform-wide terminology right, including the one word to use for each
   machine type (manipulator, mobile platform, machine, device).
-owner: coen
 review-by: 2027-01-28
 ---
 

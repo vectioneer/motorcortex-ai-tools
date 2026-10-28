@@ -6,7 +6,6 @@ description: >
   application, control blocks and their parameters, the C++/Python/JS/Rust
   client APIs, the C++ Core API, maintenance, safety, FAQ — to find the right
   page to fetch instead of guessing URLs or searching the web.
-owner: coen
 review-by: 2027-01-28
 ---
 

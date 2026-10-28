@@ -1,7 +1,5 @@
 """Tools: configure_connection, check_connection."""
 
-import json
-
 from fastmcp import Context
 
 import connection as _conn
@@ -19,7 +17,8 @@ def configure_connection(
     """Save Motorcortex connection settings and immediately reconnect.
 
     Call this after the user provides their controller IP/hostname and credentials.
-    Settings are saved to a local config file — no need to edit .mcp.json or restart.
+    Settings are saved in the plugin's data folder, so they survive plugin
+    updates — no need to edit .mcp.json or restart.
 
     Args:
         url:      WebSocket URL, e.g. wss://192.168.1.100
@@ -33,7 +32,7 @@ def configure_connection(
         "MCX_PASSWORD": password,
         "MCX_CERT": cert,
     }
-    _conn._config_file.write_text(json.dumps(config, indent=2))
+    _conn.save_config(config)
     _conn._reset_connection()
 
     if ctx:

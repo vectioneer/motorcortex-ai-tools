@@ -1,7 +1,6 @@
 ---
 name: param-write
 description: Write values to live Motorcortex parameters on the connected controller — single value, bulk write, or partial array slice. Confirms writability and reports failures clearly. Use to command setpoints, toggle inputs, or push test values.
-owner: coen
 review-by: 2027-01-28
 ---
 
@@ -34,9 +33,11 @@ result carries it as `controller`.
 ## Step 2: Pre-flight each path
 
 For every target path, call `get_parameter_info(path)` and inspect:
-- **Type flag**: must be `input`, `parameter`, or `parameter_volatile`. `output` → refuse, explain that outputs are computed by the controller.
-- **Array size**: scalar (size 1) vs array. The provided value shape must match — scalar to scalar, list-of-N to array of size N (or use `offset`/`length` for a slice).
-- **Element type**: coerce numeric literals correctly (`bool` → true/false, `int32` → integer, `double` → float).
+- **`param_type`**: must be `INPUT`, `PARAMETER`, `PARAMETER_VOLATILE` or `PARAMETER_PERSISTENT`. `OUTPUT` → refuse, explain that outputs are computed by the controller.
+- **`elements`**: scalar (1) vs array. The provided value shape must match — scalar to scalar, list-of-N to array of size N (or use `offset`/`length` for a slice).
+- **`data_type`**: coerce numeric literals correctly (`BOOL` → true/false, `INT32` → integer, `DOUBLE` → float).
+- **`flags`**: `LINK_IS_ACTIVE` means a link drives this value, so a written value is overwritten by the link — say so and ask before writing. `OVERWRITE_IS_ACTIVE` means the value is currently being overridden.
+- **`unit`**, when present: state it with the value in the Step 3 summary, and check the user's number is in that unit (mm vs m, deg vs rad).
 
 If any path fails pre-flight, list the issues and stop **before** writing anything. Do not partial-write.
 
@@ -73,5 +74,5 @@ After writing, read the values back (`get_parameter` or `get_parameter_list`) an
 
 ## Notes
 - Writing to an `output` parameter will be rejected by the MCP — do not retry, fix the path.
-- `parameter_volatile` is not persisted across controller restarts; mention this if the user expects persistence.
+- `PARAMETER_VOLATILE` is not persisted across controller restarts; mention this if the user expects persistence.
 - For test/setpoint sweeps, use `set_parameter_list` in a loop — never `set_parameter` per element.

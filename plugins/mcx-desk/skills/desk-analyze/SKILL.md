@@ -1,7 +1,6 @@
 ---
 name: desk-analyze
 description: Analyze signals already plotted in a Motorcortex Desk tab — statistics (mean, std, min/max, RMS, peak-to-peak) over any time window, FFT spectra and dominant frequency, plus overshoot, settling time, rise time and lag between traces, and snapshot values. Use when the user says "measure the step response", "what's the peak", "how noisy is this", "what frequency is that ringing at", "show me the spectrum", "how much delay between the signals". For exploring the parameter tree, use param-explore; for plotting, desk-plot.
-owner: coen
 review-by: 2027-03-04
 ---
 

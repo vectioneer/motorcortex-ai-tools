@@ -41,15 +41,16 @@ Other Motorcortex plugins, such as `mcx-desk`, build on this one.
   over WebSocket with TLS (`wss://`), using the bundled Motorcortex Root CA
   certificate (`mcp/mcx.cert.crt`).
 - **Connection settings** resolve in this order: the `MCX_URL`, `MCX_LOGIN`,
-  `MCX_PASSWORD` and `MCX_CERT` environment variables, then
-  `mcp/motorcortex_config.json` (written when you give the assistant a
-  controller address in chat), then the factory defaults (`wss://localhost`,
-  login `admin`).
-- **The saved config file** holds the login and password in plain text, inside
-  the plugin's install folder. A plugin update replaces that folder, so the
-  setting is lost and you give the address again. To keep credentials out of
-  that file and across updates, set the environment variables instead.
+  `MCX_PASSWORD` and `MCX_CERT` environment variables, then the saved
+  settings (written when you give the assistant a controller address in
+  chat), then the factory defaults (`wss://localhost`, login `admin`).
+- **Saved settings** are kept in `motorcortex_config.json` in the plugin's
+  data folder (`~/.claude/plugins/data/`), so they survive plugin updates and
+  are removed when you uninstall the plugin. The file holds the login and
+  password in plain text and is readable only by you; to keep credentials out
+  of it, set the environment variables instead.
 - **Writes** go through the `param-write` skill, which checks each path's
-  type and shape first and asks before mode, state and logic changes.
+  type, shape, unit and active links first and asks before mode, state and
+  logic changes.
 
 For API-level detail, consult https://docs.motorcortex.io.
