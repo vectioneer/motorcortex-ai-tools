@@ -1,0 +1,28 @@
+{
+  "name": "mcx-desk",
+  "version": "0.6.3",
+  "description": "Skills and MCP tools for driving a running Motorcortex Desk tab — plot live controller signals and custom computed signals, control the view, capture screenshots, export CSV, analyze buffered samples, read statistics and FFT spectra. Requires Motorcortex Desk open in a browser. For parameter-tree work without plotting, use the mcx-core param skills.",
+  "author": {
+    "name": "Vectioneer"
+  },
+  "dependencies": [
+    "mcx-core"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v node >/dev/null 2>&1 || echo \"Motorcortex Desk: Node.js is not installed, so the mcx-desk MCP server cannot start. Install Node.js 18 or newer (https://nodejs.org) and restart Claude Code.\"",
+            "timeout": 10,
+            "statusMessage": "Checking Motorcortex Desk MCP prerequisites..."
+          }
+        ]
+      }
+    ]
+  },
+  "license": "MIT",
+  "homepage": "https://docs.motorcortex.io",
+  "supportUrl": "https://support.motorcortex.io"
+}

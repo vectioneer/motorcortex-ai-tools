@@ -1,0 +1,147 @@
+# Standard Applications
+
+Pages under https://docs.motorcortex.io/docs/applications/ — captured 2026-10-28 from the sitemap.
+Each entry: page title (link) — the page's own description.
+
+There now is only a single App that supports Robots, Vehicles and generic Machines as well as combinations thereof. The robot application is now …
+
+- [Configure your application](https://docs.motorcortex.io/docs/applications/configure_application/) — Adapt a store application to your own drives, axes and mechanism, step by step.
+  - [Add a 3D model](https://docs.motorcortex.io/docs/applications/configure_application/3d_model/) — Show a 3D model of your robot or machine in the Grid dashboard, moving with the live values of your application.
+  - [Set up an AGV](https://docs.motorcortex.io/docs/applications/configure_application/agv_control/) — Describe your AGV's wheels to Motorcortex, link them to the axes, and set the speed limits and velocity input.
+  - [Alarm devices](https://docs.motorcortex.io/docs/applications/configure_application/alarm_devices/) — Drive a signal light or a beeper from the robot state, for example steady green while engaged and blinking red after an error.
+  - [Axes control](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/) — Convert drive units, limit the setpoints, watch the actual values and tune the controllers of every axis.
+      - [Limiter](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/axes_limiters/pva-limiters/) — Keep every axis setpoint inside its position limits and within its velocity, acceleration and jerk limits.
+    - [Controllers](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/pid_controllers/) — Close the position or velocity loop in Motorcortex when the drive runs CSV or CST, and tune the two PID controllers.
+      - [Position controller](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/pid_controllers/position-controller/) — Close the position loop in Motorcortex and tune it.
+      - [Tune the controllers](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/pid_controllers/tuning/) — Find gains that make an axis follow its target closely, step by step, with the plots to watch and what each symptom means.
+      - [Velocity controller](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/pid_controllers/velocity-controller/) — Close the velocity loop in Motorcortex when the drive runs CST, and tune it.
+    - [Transformations](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/transformation/) — Convert the drive's positions, velocities and torques to rad, m, rad/s and Nm at the load, and back.
+      - [Position transformation](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/transformation/position-transformation/) — Convert encoder ticks to rad or m at the load, set the direction and the zero position, and keep the position after a power cycle.
+      - [Sensor torque transformation](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/transformation/sensor-torque-transformation/) — Convert a joint torque sensor's value to Nm, check its sign and calibrate its zero.
+      - [Torque transformation](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/transformation/torque-offset-transformation/) — Convert the drive's torque unit to Nm at the load, for the torque target, the torque offset and the actual torque.
+      - [Velocity transformation](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/transformation/velocity-transformation/) — Convert the drive's velocity unit to rad/s or m/s at the load.
+    - [Window detectors](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/) — Raise a warning or an emergency stop when an axis's position, tracking error, velocity, acceleration, torque or setpoint leaves its window.
+      - [Acceleration window](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/acceleration-window/) — Warn or stop when an axis accelerates harder than it should.
+      - [Setpoint jump detector](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/jump-detectors/) — Stop the axes when a setpoint jumps further in one cycle than any real motion would.
+      - [Position window](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/position-window/) — Warn or stop when an axis's actual position leaves its range.
+      - [Torque window](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/torque-window/) — Warn or stop when an axis's actual torque leaves its range.
+      - [Tracking error window](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/tracking-error-window/) — Warn or stop when an axis falls too far behind its position target.
+      - [Velocity window](https://docs.motorcortex.io/docs/applications/configure_application/axes_control/window_detectors/velocity-window/) — Warn or stop when an axis moves faster than it should.
+  - [Definitions](https://docs.motorcortex.io/docs/applications/configure_application/definitions/) — The units, coordinate frames and poses the application uses, and the robot singularities to stay away from.
+  - [Drive logic](https://docs.motorcortex.io/docs/applications/configure_application/drive_logic/) — Choose the drive mode of operation per axis, and see how the drive logic switches CiA402 drives on and off.
+  - [EtherCAT devices](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/) — Add your drives and I/O modules to the EtherCAT configuration and link them to the application.
+      - [CiA402 drives: Elmo Gold PDOs](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/drives/cia402-elmo/) — Build the PDOs of an Elmo Gold drive in its freely configurable rxPDO 0x1607 and txPDO 0x1A07.
+      - [CiA402 drives: PDOs of other drives](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/drives/cia402-other/) — Find out how to map the PDOs of a CiA402 drive that is not one of the examples.
+      - [CiA402 drives: Synapticon SOMANET PDOs](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/drives/cia402-synapticon/) — Check the PDOs of a Synapticon SOMANET drive, which come already mapped in its ESI file.
+      - [CiA402 drives](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/drives/cia402drive/) — Add a CiA402 EtherCAT drive to your configuration and link it to the application.
+      - [I/O devices](https://docs.motorcortex.io/docs/applications/configure_application/ethercat_devices/io_devices/digital_io/) — Add a digital I/O module to the EtherCAT configuration and link its channels to Motorcortex parameters.
+  - [Final check](https://docs.motorcortex.io/docs/applications/configure_application/final_check/) — Tick off every step of the configuration, and test each one to see that it is right.
+  - [Set up a machine](https://docs.motorcortex.io/docs/applications/configure_application/machine/) — The axis settings a multi-axis machine depends on, as a checklist.
+  - [Set up a robot](https://docs.motorcortex.io/docs/applications/configure_application/robot/) — Describe your robot's mechanism to Motorcortex: kinematics, mass, frames, jog limits and singularities.
+    - [Frames and tool offset](https://docs.motorcortex.io/docs/applications/configure_application/robot/frames/) — The parameters that set where the robot stands and where its tool point is, and the user frames that shift a motion program.
+    - [Joint jog limits](https://docs.motorcortex.io/docs/applications/configure_application/robot/joint-jog-limiters/) — Set the range each joint of a robot can be jogged in, in manual joint mode.
+    - [Manipulability](https://docs.motorcortex.io/docs/applications/configure_application/robot/manipulability/) — Warn, stop or slow down a robot as it comes close to a singular pose.
+    - [Kinematics and mass](https://docs.motorcortex.io/docs/applications/configure_application/robot/robotmechanism/) — Describe your robot's segments, solver, mass and inertia in mech-parameters.xml, and make sure the controller uses them.
+    - [Position setpoint with CSP](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/position_position/) — Send position setpoints to a drive that runs its own position, velocity and torque loops.
+    - [Position setpoint with CST](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/position_torque/) — Close the position and velocity loops in Motorcortex and let the drive follow a target torque.
+    - [Position setpoint with CSV](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/position_velocity/) — Close the position loop in Motorcortex and let the drive follow a target velocity.
+    - [Torque setpoint with CST](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/torque_torque/) — Send torque setpoints straight to a drive in cyclic synchronous torque mode.
+    - [Velocity setpoint with CST](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/velocity_torque/) — Close the velocity loop in Motorcortex and let the drive follow a target torque.
+    - [Velocity setpoint with CSV](https://docs.motorcortex.io/docs/applications/configure_application/setpoint_mode/velocity_velocity/) — Send velocity setpoints to a drive that runs its own velocity and torque loops.
+- [Motorcortex Machine App](https://docs.motorcortex.io/docs/applications/machine_app/) — Learn how to use the Motorcortex Machine App
+  - [Alarms](https://docs.motorcortex.io/docs/applications/machine_app/machine_alarms/)
+  - [Axis Settings](https://docs.motorcortex.io/docs/applications/machine_app/machine_axis_settings/)
+  - [Diagnostics](https://docs.motorcortex.io/docs/applications/machine_app/machine_diagnostics/)
+    - [Main Controls](https://docs.motorcortex.io/docs/applications/machine_app/machine_diagnostics/maincontrolsmachine/) — Using the Main Controls you can switch the system on (Engage) and off.
+  - [Home](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/)
+    - [Main Controls](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/main_controls/) — Switch Off …
+    - [Manual Jog Example](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-manual-jog-example/) — In this example the system is put in Engaged_S state the modes are set to Active mode and Manual mode. The values of the Manual Jog outputs are …
+    - [Set Up Manual Jog](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-manual-jog/) — In Engaged_S state and Active mode it is possible to use Manual Jog. You can move each axis with a joystick: Moving up resulting in a clockwise …
+    - [Motion Player Example: 00_ExampleFile.csv](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-motion-player-example/) — In this example the system is put in Engaged_S state the modes are set to Active mode, Auto mode and Player mode. The 00_ExampleFile.csv is loaded, …
+    - [How to Set-Up Motion Player](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-motion-player/) — With the motion player the user can define custom motion profiles defined in a .csv file. These files can be loaded to Motorcortex Generic App by …
+    - [Network Inputs Example](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-network-input-example/) — In this example the system is put in Engaged_S state the modes are set to Active mode, Auto mode and Network Input mode. In the side frame you can see …
+    - [How to connect Network Inputs](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-network-input/) — While in Network Input mode, Using Motorcotex Desk you can parameterize the Setpoint Generator under the following path: …
+    - [Signal Generator](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-signal-generator-cards/) — Enable …
+    - [Signal Generator Example](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-signal-generator-example/) — In this example the system is put in Engaged_S state the modes are set to Active mode and Manual mode. The signal parameters have been defined before …
+    - [How to Set-Up Signal Generator](https://docs.motorcortex.io/docs/applications/machine_app/machine_home/setup-signal-generator/) — The Signal Generator can be configured by a set of parameters: Fadetime, Amplitude, Frequency and Offset for each axis. The output of the signal …
+  - [Safety](https://docs.motorcortex.io/docs/applications/machine_app/machine_safety/)
+- [Motorcortex Robot App](https://docs.motorcortex.io/docs/applications/robot_app/) — Motorcortex-Robot-App is a turn-key robot motion control software application that runs on standard x86 or ARM based hardware platforms. It is …
+  - [API](https://docs.motorcortex.io/docs/applications/robot_app/api/) — The API for the Motorcotex Robot app can be found on Vectioneer public GIT. At this moment a API is available for: Robot C++ API Robot …
+  - [Definitions](https://docs.motorcortex.io/docs/applications/robot_app/definitions/) — Units The Motion Controller shall use SI units, such as Seconds (sec), Meter (m), Radian (rad), Newton (N), Newton * Meter (Nm), Kelvin (K), Kilogram …
+  - [Robot Features](https://docs.motorcortex.io/docs/applications/robot_app/features/) — Motorcortex-Robot-App is packed with Features. Features are components that can be enabled or disabled on demand. Some Features require an additional …
+    - [Additional Axes](https://docs.motorcortex.io/docs/applications/robot_app/features/additional_axes/) — TBD
+    - [Bartending](https://docs.motorcortex.io/docs/applications/robot_app/features/bartending/) — TBD
+    - [Belt Tracking](https://docs.motorcortex.io/docs/applications/robot_app/features/belt_tracking/) — TBD
+    - [File Replay](https://docs.motorcortex.io/docs/applications/robot_app/features/file_replay/) — TBD
+    - [Joysticks](https://docs.motorcortex.io/docs/applications/robot_app/features/joysticks/) — TBD
+    - [SpaceMouse](https://docs.motorcortex.io/docs/applications/robot_app/features/spacemouse/) — TBD
+    - [UDP Communication](https://docs.motorcortex.io/docs/applications/robot_app/features/udp/) — TBD
+    - [User Frames](https://docs.motorcortex.io/docs/applications/robot_app/features/user_frames/) — TBD
+    - [Weaving Motion](https://docs.motorcortex.io/docs/applications/robot_app/features/weaving/) — TBD
+  - [Usage](https://docs.motorcortex.io/docs/applications/robot_app/usage/) — In this section you will learn how to use the Motorcortex Robot Application. User Interface - Basic user interface functionalities. Robot Settings - …
+    - [Robot Settings](https://docs.motorcortex.io/docs/applications/robot_app/usage/robot_settings/) — This section explains how to change the most commonly used robot settings.: Inputs - How to select input type and adjust input limiter settings. …
+    - [User Interface](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/) — In this section you will learn how to switch the robot on and off, create and run robot programs and handle error messages. Prerequisites We assume …
+      - [Alarms](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_alarms/)
+      - [Axis Settings](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/) — Axis settings tab explained
+        - [Actuator Limiters](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/actuatorlimiters/)
+        - [Axis Actual](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/axisactual/)
+        - [Axis Setpoint](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/axissetpoint/)
+        - [Drive](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/drive/)
+        - [Encoder](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/encoder/)
+        - [Gearbox](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/gearbox/)
+        - [Homing](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/homing/)
+        - [Joint Jog Limiters](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/jointjoglimiters/)
+        - [Motor Torque](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/motortorque/)
+        - [Tool Tip Offset](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_settings/tooltipoffset/)
+      - [Axis Tuning](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_axis_tuning/) — With the Axis Tuning tab you can PID tune the Position and Velocity loop for each axes. The tab is visible if the application is in run mode, ( …
+      - [Diagnostics](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_diagnostics/) — The Motorcortex Robot App contains a diagnostics tab in which the system and drive diagnostics can be displayed. In this section you will lean how to …
+        - [Drive Diagnostics](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_diagnostics/drivediagnostics/) — The Drive Diagnostics presents status and warning information from the connected servo drives. For convenience certain standard bits in the Status …
+        - [Drive Service Data Objects](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_diagnostics/driveservicedataobjects/) — With Drive Service Data Object (SDO), the SDOs are read- ut by means of pressing the Read SDOs button. This will present the data of SDO Error codes …
+        - [Main Controls](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_diagnostics/maincontrols/) — Using the Main Controls you can switch the system on (Engage) and off.
+        - [System Logs](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_diagnostics/systemlogs/) — The System Logs provide information about the logs made in the system. System logs are only visible after the application is deployed to the …
+      - [Home](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/)
+        - [Geometry Panel Example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/geometry_geometry_example/)
+        - [Geometry Panel Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/geometry_geometry_explained/)
+        - [3D visualization](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_3d_visualization/)
+        - [Geometry Panel](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_geometry/)
+        - [Main Controls Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_main_controls/)
+        - [Programs explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program/)
+        - [Deploy](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program_deploy/) — Pressing deploy button, will load the robot program to your controller. Note Deploy works only if the robot is switched on.
+        - [Function](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program_function/) — In the function block menu you can select function blocks to set up a program. move set create call if else if else break loop wait group comment …
+        - [Menu](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program_menu/) — If you open the robot GUI. In the programs panel a program menu is shown, here you can open, upload or create a program for your application: Start …
+        - [Mode](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program_mode/)
+        - [Program](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/home_program_program/) — In the program window you can create a program in simple mode or advanced mode. Simple Mode Simple Mode Example Advanced Mode Advanced Mode …
+        - [cart](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_cart_explained/)
+        - [cart rotation example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_cart_rotation_example/)
+        - [cart translation example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_cart_translation_example/)
+        - [Deploy Example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_deploy_example/) — Deploy And Play Example
+        - [Deploy And Play Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_deploy_explained/)
+        - [Joint Example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_joint_example/)
+        - [Main Controls Joint Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/main_controls_joint_explained/)
+        - [Advanced Mode Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_advanced_mode/)
+        - [Advanced Mode Example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_advanced_mode_example/)
+        - [Break function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_break/)
+        - [Call function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_call/)
+        - [Comment function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_comment/)
+        - [Create function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_create/)
+        - [Else function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_else/)
+        - [Else if function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_else_if/)
+        - [Group function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_group/)
+        - [If function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_if/)
+        - [Loop function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_loop/)
+        - [Menu screen](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_menu_screen_explained/) — With the new button you can create a empty program. With the save as button, you can save and rename current program. Note Step …
+        - [Move function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_move/)
+        - [set function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_set/)
+        - [Simple Mode Explained](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_simple_mode/)
+        - [Simple Mode Example](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_simple_mode_example/)
+        - [Programs start screen](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_start_menu_explained/)
+        - [wait function block](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/program_wait/)
+        - [Advanced Constructor](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/robot_program_constructor/)
+        - [Advanced Main](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/robot_program_main/)
+        - [Advanced Run](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_home/robot_program_method/)
+      - [Robot Programming](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_programming/)
+      - [Robot Data](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_robot_data/) — Robot data tab explained
+      - [Safety](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_safety/) — The main function of the safety tab is to provide information about the integrated safety program and SAFETY PLC hardware. The Tab provides a …
+        - [safetyPLC](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_safety/safetyplc/)
+        - [Safety Project](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/robot_safety/safetyproject/)
+      - [States, Modes and Events](https://docs.motorcortex.io/docs/applications/robot_app/usage/user_interface/states_modes/) — Introduction A State is an abstraction of the system’s hardware state. For instance, the system can be in OFF State, where power to the drives …

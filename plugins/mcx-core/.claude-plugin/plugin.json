@@ -1,0 +1,25 @@
+{
+  "name": "mcx-core",
+  "version": "2.8.0",
+  "description": "Motorcortex platform context and live parameter access — terminology, how a Motorcortex system is put together, and skills to explore and write the parameter tree of a connected controller through a bundled MCP server.",
+  "author": {
+    "name": "Vectioneer"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v uv >/dev/null 2>&1 || { echo \"Motorcortex Core: the 'uv' command is not installed, so the mcx-core MCP server cannot start. Install it (macOS/Linux: curl -LsSf https://astral.sh/uv/install.sh | sh  |  Windows: winget install astral-sh.uv) and restart Claude Code.\"; exit 0; }; uv run --isolated --no-project --quiet --python \">=3.10\" --with-requirements \"${CLAUDE_PLUGIN_ROOT}/mcp/requirements.txt\" python -c \"import fastmcp, motorcortex\" >/dev/null 2>&1 || echo \"Motorcortex Core: could not prepare the Python environment for the mcx-core MCP server. Check network access to PyPI, then restart Claude Code.\"",
+            "timeout": 180,
+            "statusMessage": "Preparing Motorcortex Core MCP environment..."
+          }
+        ]
+      }
+    ]
+  },
+  "license": "MIT",
+  "homepage": "https://docs.motorcortex.io",
+  "supportUrl": "https://support.motorcortex.io"
+}

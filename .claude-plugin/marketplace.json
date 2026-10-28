@@ -1,0 +1,22 @@
+{
+  "name": "motorcortex",
+  "owner": {
+    "name": "Vectioneer"
+  },
+  "metadata": {
+    "description": "Motorcortex AI tools — skills and MCP servers for AI assistants working with the Motorcortex motion control platform",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "mcx-core",
+      "source": "./plugins/mcx-core",
+      "description": "Motorcortex platform context and live parameter access — terminology, how a Motorcortex system is put together, and skills to explore and write the parameter tree of a connected controller. Needs uv."
+    },
+    {
+      "name": "mcx-desk",
+      "source": "./plugins/mcx-desk",
+      "description": "Drive a running Motorcortex Desk tab — plot live controller signals and custom computed signals, control the view, capture screenshots, export CSV, analyze buffered samples. Requires Motorcortex Desk open in a browser and Node.js 18 or newer."
+    }
+  ]
+}
