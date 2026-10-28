@@ -127,7 +127,7 @@ connection; `mcx-core` connects to the controller you name.
   never replaced without your OK.
 - **What gets installed.** `mcx-desk` needs nothing beyond Node.js.
   `mcx-core` downloads `fastmcp` and `motorcortex-python` from PyPI the first
-  time it starts.
+  time it starts, at the versions pinned in its lockfile.
 - **What Claude sees.** Parameter values, plot data and screenshots that
   Claude reads become part of your conversation with Claude, like anything
   else you share with it.

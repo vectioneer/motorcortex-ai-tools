@@ -4,15 +4,15 @@
       "command": "uv",
       "args": [
         "run",
-        "--isolated",
-        "--no-project",
+        "--locked",
         "--quiet",
-        "--python", ">=3.10",
-        "--with-requirements", "${CLAUDE_PLUGIN_ROOT}/mcp/requirements.txt",
+        "--project", "${CLAUDE_PLUGIN_ROOT}/mcp",
         "python",
         "${CLAUDE_PLUGIN_ROOT}/mcp/motorcortex_core_mcp.py"
       ],
-      "env": {}
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "${CLAUDE_PLUGIN_DATA}/venv"
+      }
     }
   }
 }

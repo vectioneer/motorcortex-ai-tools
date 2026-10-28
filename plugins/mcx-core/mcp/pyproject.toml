@@ -1,0 +1,12 @@
+[project]
+name = "mcx-core-mcp"
+version = "0"
+description = "Controller MCP server of the mcx-core plugin"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=3.0",
+    "motorcortex-python>=1.0",
+]
+
+[tool.uv]
+package = false

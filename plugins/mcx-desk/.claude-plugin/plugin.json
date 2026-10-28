@@ -1,6 +1,6 @@
 {
   "name": "mcx-desk",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Skills and MCP tools for driving a running Motorcortex Desk tab — plot live controller signals and custom computed signals, control the view, capture screenshots, export CSV, analyze buffered samples, read statistics and FFT spectra. Requires Motorcortex Desk open in a browser. For parameter-tree work without plotting, use the mcx-core param skills.",
   "author": {
     "name": "Vectioneer"
@@ -24,5 +24,15 @@
   },
   "license": "MIT",
   "homepage": "https://docs.motorcortex.io",
-  "supportUrl": "https://support.motorcortex.io"
+  "supportUrl": "https://support.motorcortex.io",
+  "repository": "https://github.com/vectioneer/motorcortex-ai-tools",
+  "icon": "./icon.png",
+  "documentationUrl": "https://docs.motorcortex.io",
+  "privacyPolicyUrl": "https://vectioneer.com/privacy-policy/",
+  "keywords": [
+    "motorcortex",
+    "motion-control",
+    "robotics",
+    "industrial-automation"
+  ]
 }

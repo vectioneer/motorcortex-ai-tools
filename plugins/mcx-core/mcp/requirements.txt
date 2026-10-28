@@ -1,2 +1,0 @@
-fastmcp>=3.0
-motorcortex-python>=1.0

@@ -1,5 +1,12 @@
 # Changelog — mcx-core
 
+## 2.9.0 — 2026-10-28
+
+- The MCP server's Python packages are pinned in `mcp/uv.lock` and installed
+  at exactly those versions, into the plugin's data folder.
+- The session-start hook now only checks that `uv` is installed. The first
+  server start after an install or update downloads the packages.
+
 ## 2.8.1 — 2026-10-28
 
 - `get_parameter_info` now reports the parameter type (input, output,

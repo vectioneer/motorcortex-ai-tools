@@ -17,8 +17,8 @@ Other Motorcortex plugins, such as `mcx-desk`, build on this one.
 ## Prerequisites
 
 - [`uv`](https://docs.astral.sh/uv/) on your `PATH`. The controller MCP server
-  runs through `uv run`, which resolves `mcp/requirements.txt` on start and
-  caches it; there is no virtualenv to create.
+  runs through `uv run --locked`, which installs the exact package versions
+  in `mcp/uv.lock`; there is no virtualenv to create.
   macOS/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh` —
   Windows: `winget install astral-sh.uv`
 
@@ -34,9 +34,12 @@ Other Motorcortex plugins, such as `mcx-desk`, build on this one.
 
 ## What it runs and connects to
 
-- **On session start** a hook checks that `uv` is installed and prepares the
-  Python environment, which downloads `fastmcp` and `motorcortex-python` from
-  PyPI the first time.
+- **On session start** a hook checks that `uv` is installed and prints how to
+  install it if not. It runs nothing else.
+- **On its first start** after an install or update, the MCP server downloads
+  `fastmcp`, `motorcortex-python` and their dependencies from PyPI, at the
+  versions pinned in `mcp/uv.lock`, into a Python environment in the plugin's
+  data folder (`~/.claude/plugins/data/`).
 - **The MCP server** (`mcp/`) connects only to the controller you configure,
   over WebSocket with TLS (`wss://`), using the bundled Motorcortex Root CA
   certificate (`mcp/mcx.cert.crt`).
@@ -52,5 +55,9 @@ Other Motorcortex plugins, such as `mcx-desk`, build on this one.
 - **Writes** go through the `param-write` skill, which checks each path's
   type, shape, unit and active links first and asks before mode, state and
   logic changes.
+- **What Claude sees**: parameter paths and values the assistant reads
+  become part of your conversation with Claude, like anything else you share
+  with it. The plugin sends nothing anywhere else: no telemetry, no other
+  servers.
 
 For API-level detail, consult https://docs.motorcortex.io.

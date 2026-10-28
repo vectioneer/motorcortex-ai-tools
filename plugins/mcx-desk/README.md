@@ -22,9 +22,9 @@ skills.
   missing.
 - Motorcortex Desk open in Chrome, Edge or Firefox, connected to a
   controller. Safari blocks the connection from an HTTPS page to the local
-  bridge. The deployed Desk at `desk.motorcortex.io` is allowed by default;
-  other Desk origins are added with `GLPLOT_HUB_ORIGINS` (see
-  `mcp/README.md`).
+  bridge. The deployed Desk at `desk.motorcortex.io` and its test
+  deployment at `desk.dev.motorcortex.io` are allowed by default; other Desk
+  origins are added with `GLPLOT_HUB_ORIGINS` (see `mcp/README.md`).
 
 ## Skills
 
@@ -52,5 +52,9 @@ skills.
   served from `localhost`, can connect to the bridge port and use it like the
   Desk tab, parameter writes included. Run the plugin only on a computer you
   trust and do not share.
+- **What Claude sees**: parameter values, plot data and screenshots the
+  assistant reads become part of your conversation with Claude, like
+  anything else you share with it. The plugin sends nothing anywhere else:
+  no telemetry, no other servers.
 
 Port, origins and file directory settings: `mcp/README.md`.
