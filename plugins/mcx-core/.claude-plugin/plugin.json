@@ -1,6 +1,6 @@
 {
   "name": "mcx-core",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Motorcortex platform context and live parameter access — terminology, how a Motorcortex system is put together, and skills to explore and write the parameter tree of a connected controller through a bundled MCP server.",
   "author": {
     "name": "Vectioneer"
